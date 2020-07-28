@@ -4,14 +4,18 @@ export default function Todos({ todos, onCreate, onToggle }) {
     
   const [input, setInput] = useState("");
 
-  //   const TodoItem = ({ todo, onToggle }) => {
-  //     console.log(todo)
-  //   };
+    const TodoItem = ({ todo, onToggle }) => {
+      return(
+        <li style={{ textDecoration: todo.done ? 'line-through' : 'none' }} onClick={() => onToggle(todo.id)}>
+          {todo.text}
+        </li>
+      )
+    };
 
   const TodoList = ({todos, onToggle}) => {
-    console.log(todos);
-    
-    return 0
+    return (
+      todos.map(todo => <TodoItem key={todo.id} todo={todo} onToggle={onToggle} />)
+    )
   };
 
   const onChange = (e) => {

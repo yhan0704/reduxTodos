@@ -25,7 +25,7 @@ function todos(state = initial, action) {
     case TOGGLE:
         return state.map(todo => {
             if(todo.id === action.id){
-                return [{...todo, done : !todo.done}]
+                return ({...todo, done : !todo.done})
             }else{
                 return todo
             }
